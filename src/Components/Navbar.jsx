@@ -2,9 +2,11 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 border rounded">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="text-xl md:text-4xl font-bold">
+          Digi<span className="text-red-600">Market</span>
+        </a>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
@@ -32,13 +34,7 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
+              <a>Profile</a>
             </li>
             <li>
               <a>Logout</a>
