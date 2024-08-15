@@ -3,8 +3,8 @@ import { AuthContext } from "./AuthProvider";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  const { user, logOut, signInWithGoogle } = useContext(AuthContext);
+
   return (
     <div className="navbar bg-base-100 border rounded">
       <div className="flex-1">

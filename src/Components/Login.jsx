@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { signInWithGoogle, signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -13,6 +17,19 @@ const Login = () => {
     const { email, password } = data;
     console.log(data);
     try {
+      await signIn(email, password);
+      navigate("/");
+      toast.success("Singin Successful");
+    } catch (error) {
+      toast(error.message);
+    }
+  };
+
+  const handleGoogle = async () => {
+    try {
+      await signInWithGoogle();
+      navigate("/");
+      toast.success("Singin Successful");
     } catch (error) {
       toast(error.message);
     }
@@ -74,7 +91,7 @@ const Login = () => {
       </div>
       <div className="flex justify-center space-x-4">
         <button
-          //   onClick={handleGoogle}
+          onClick={handleGoogle}
           aria-label="Log in with Google"
           className="p-3 rounded-sm"
         >
