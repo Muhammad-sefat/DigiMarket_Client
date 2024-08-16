@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const limit = 9;
@@ -11,18 +12,21 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/product?page=${currentPage}&limit=${limit}`
+        `http://localhost:3000/product?search=${searchQuery}&page=${currentPage}&limit=${limit}`
       );
       setDatas(data.data);
       setTotalPages(data.totalPages);
     };
     getData();
-  }, [currentPage]);
+  }, [currentPage, searchQuery]);
 
-  const handlePageChange = (newPage) => {
-    if (newPage > 0 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-    }
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
   };
 
   const renderPaginationButtons = () => {
@@ -43,6 +47,17 @@ const Home = () => {
 
   return (
     <div className="my-10">
+      <div className="flex justify-between">
+        <div className="form-control">
+          <input
+            type="text"
+            placeholder="Search by Name"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className="input input-bordered w-24 md:w-auto"
+          />
+        </div>
+      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {datas.map((data, index) => (
           <SingleData key={index} data={data}></SingleData>
