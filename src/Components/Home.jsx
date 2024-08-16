@@ -16,13 +16,13 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/product?search=${searchQuery}&page=${currentPage}&limit=${limit}`
+        `http://localhost:3000/product?search=${searchQuery}&page=${currentPage}&limit=${limit}&category=${category}&brand=${brand}&priceRange=${priceRange}&sort=${sortOption}`
       );
       setDatas(data.data);
       setTotalPages(data.totalPages);
     };
     getData();
-  }, [currentPage, searchQuery]);
+  }, [currentPage, searchQuery, category, brand, priceRange, sortOption]);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -31,6 +31,25 @@ const Home = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+  };
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+    setCurrentPage(1);
+  };
+
+  const handleBrandChange = (event) => {
+    setBrand(event.target.value);
+    setCurrentPage(1);
+  };
+
+  const handlePriceRangeChange = (event) => {
+    setPriceRange(event.target.value);
+    setCurrentPage(1);
+  };
+
+  const handleSortChange = (event) => {
+    setSortOption(event.target.value);
+    setCurrentPage(1);
   };
 
   const renderPaginationButtons = () => {
@@ -55,7 +74,7 @@ const Home = () => {
         <div className="form-control">
           <select
             value={category}
-            // onChange={handleCategoryChange}
+            onChange={handleCategoryChange}
             className="input input-bordered"
           >
             <option value="">All Categories</option>
@@ -64,28 +83,38 @@ const Home = () => {
             <option value="Computer">Computer</option>
             <option value="Tablet">Tablet</option>
             <option value="Headphones">Headphones</option>
+            <option value="Watch">Watch</option>
           </select>
         </div>
         {/* Brand Filter */}
         <div className="form-control">
           <select
             value={brand}
-            // onChange={handleBrandChange}
+            onChange={handleBrandChange}
             className="input input-bordered"
           >
             <option value="">All Brands</option>
-            <option value="ElectroWave">ElectroWave</option>
-            <option value="TechWave">TechWave</option>
-            <option value="GadgetMax">GadgetMax</option>
-            <option value="SoundCore">SoundCore</option>
-            <option value="InnoVision">InnoVision</option>
+            <option value="Apple">Apple</option>
+            <option value="Google">Google</option>
+            <option value="Polar">Polar</option>
+            <option value="Huawei">Huawei</option>
+            <option value="OnePlus">OnePlus</option>
+            <option value="ASUS">ASUS</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Sony">Sony</option>
+            <option value="Aser">Acer</option>
+            <option value="Microsoft">Microsoft</option>
+            <option value="Lenevo">Lenevo</option>
+            <option value="Bose">Bose</option>
+            <option value="Dell">Dell</option>
+            <option value="HP">HP</option>
           </select>
         </div>
         {/* Price Range Filter */}
         <div className="form-control">
           <select
             value={priceRange}
-            // onChange={handlePriceRangeChange}
+            onChange={handlePriceRangeChange}
             className="input input-bordered"
           >
             <option value="">All Prices</option>
@@ -100,13 +129,13 @@ const Home = () => {
         <div className="form-control">
           <select
             value={sortOption}
-            // onChange={handleSortChange}
+            onChange={handleSortChange}
             className="input input-bordered"
           >
-            <option value="">Sort by</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="date-desc">Date Added: Newest First</option>
+            <option value="">Sort by Price</option>
+            <option value="price-asc"> Low to High</option>
+            <option value="price-desc"> High to Low</option>
+            <option value="date-desc"> Recent Product</option>
           </select>
         </div>
         <div className="form-control">
