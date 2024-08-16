@@ -7,6 +7,10 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
+  const [priceRange, setPriceRange] = useState("");
+  const [sortOption, setSortOption] = useState("");
   const limit = 9;
 
   useEffect(() => {
@@ -48,6 +52,63 @@ const Home = () => {
   return (
     <div className="my-10">
       <div className="flex justify-between">
+        <div className="form-control">
+          <select
+            value={category}
+            // onChange={handleCategoryChange}
+            className="input input-bordered"
+          >
+            <option value="">All Categories</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Computer">Computer</option>
+            <option value="Tablet">Tablet</option>
+            <option value="Headphones">Headphones</option>
+          </select>
+        </div>
+        {/* Brand Filter */}
+        <div className="form-control">
+          <select
+            value={brand}
+            // onChange={handleBrandChange}
+            className="input input-bordered"
+          >
+            <option value="">All Brands</option>
+            <option value="ElectroWave">ElectroWave</option>
+            <option value="TechWave">TechWave</option>
+            <option value="GadgetMax">GadgetMax</option>
+            <option value="SoundCore">SoundCore</option>
+            <option value="InnoVision">InnoVision</option>
+          </select>
+        </div>
+        {/* Price Range Filter */}
+        <div className="form-control">
+          <select
+            value={priceRange}
+            // onChange={handlePriceRangeChange}
+            className="input input-bordered"
+          >
+            <option value="">All Prices</option>
+            <option value="0-100">$0 - $100</option>
+            <option value="101-300">$101 - $300</option>
+            <option value="301-500">$301 - $500</option>
+            <option value="501-1000">$501 - $1000</option>
+            <option value="1000+">$1000+</option>
+          </select>
+        </div>
+        {/* Sorting */}
+        <div className="form-control">
+          <select
+            value={sortOption}
+            // onChange={handleSortChange}
+            className="input input-bordered"
+          >
+            <option value="">Sort by</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="date-desc">Date Added: Newest First</option>
+          </select>
+        </div>
         <div className="form-control">
           <input
             type="text"
