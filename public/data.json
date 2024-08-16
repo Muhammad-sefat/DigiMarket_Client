@@ -1,0 +1,122 @@
+[
+  {
+    "name": "OliveDrab Headphone",
+    "image": "https://i.ibb.co/c6FzJnN/pexels-dzeninalukac-815494.jpg",
+    "rating": 1.8,
+    "price": 796.47,
+    "description": "Yet small culture white value officer.",
+    "category": "Headphones",
+    "createdAt": "08-09-2023",
+    "brand": "ElectroWave"
+  },
+  {
+    "name": "LightGray Headphones",
+    "image": "https://i.ibb.co/0mhjTHL/person-using-laptop-near-coffee-tablet.jpg",
+    "rating": 2.8,
+    "price": 691.85,
+    "description": "Together window store truth trial site.",
+    "category": "Headphones",
+    "createdAt": "07-10-2023",
+    "brand": "DeviceHub"
+  },
+  {
+    "name": "Lenevo Computer",
+    "image": "https://i.ibb.co/G5x32X7/pexels-designecologist-1999463.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Computer",
+    "createdAt": "22-12-2023",
+    "brand": "GraphicGenius"
+  },
+  {
+    "name": "Realme Mobile",
+    "image": "https://i.ibb.co/m972ygr/pexels-nanadua11-3586249.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Mobile",
+    "createdAt": "22-12-2023",
+    "brand": "SoundSphere"
+  },
+  {
+    "name": "Sony Tablet",
+    "image": "https://i.ibb.co/m972ygr/pexels-nanadua11-3586249.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Tablet",
+    "createdAt": "22-12-2023",
+    "brand": "DesignMaster"
+  },
+  {
+    "name": "Sumsung Mobile",
+    "image": "https://i.ibb.co/m972ygr/pexels-nanadua11-3586249.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Mobile",
+    "createdAt": "22-12-2023",
+    "brand": "GraphicGenius"
+  },
+  {
+    "name": "Luxirius Watch",
+    "image": "https://i.ibb.co/c6FzJnN/pexels-dzeninalukac-815494.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Watch",
+    "createdAt": "22-12-2023",
+    "brand": "PixelStream"
+  },
+  {
+    "name": "Super Watch",
+    "image": "https://i.ibb.co/m972ygr/pexels-nanadua11-3586249.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Watch",
+    "createdAt": "22-12-2023",
+    "brand": "SoundSphere"
+  },
+  {
+    "name": "LimeGreen Computer",
+    "image": "https://i.ibb.co/0mhjTHL/person-using-laptop-near-coffee-tablet.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Computer",
+    "createdAt": "22-12-2023",
+    "brand": "PixelStream"
+  },
+  {
+    "name": "SummerGreen Laptop",
+    "image": "https://i.ibb.co/n6xgy8t/green-plant-can-with-open-laptop-wooden-desk.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Laptop",
+    "createdAt": "22-12-2023",
+    "brand": "DesignMaster"
+  },
+  {
+    "name": "LimeGreen Laptop",
+    "image": "https://i.ibb.co/5TVN6vG/laptop-near-watch-plant.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Laptop",
+    "createdAt": "22-12-2023",
+    "brand": "GraphicGenius"
+  },
+  {
+    "name": "LimeGreen Headphone",
+    "image": "https://i.ibb.co/c6FzJnN/pexels-dzeninalukac-815494.jpg",
+    "rating": 3.6,
+    "price": 319.6,
+    "description": "Break evening live son church officer prevent star though pressure exist store dark.",
+    "category": "Headphones",
+    "createdAt": "22-12-2023",
+    "brand": "ElectroWave"
+  }
+]

@@ -7,10 +7,17 @@ import Register from "./Components/Register.jsx";
 import AuthProvider from "./Components/AuthProvider.jsx";
 import Login from "./Components/Login.jsx";
 import { Toaster } from "react-hot-toast";
+import Home from "./Components/Home.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+    ],
   },
   {
     path: "/register",
