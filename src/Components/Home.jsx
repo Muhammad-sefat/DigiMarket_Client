@@ -70,7 +70,7 @@ const Home = () => {
 
   return (
     <div className="my-10">
-      <div className="flex justify-between">
+      <div className="md:flex justify-between items-center gap-4 space-y-3">
         <div className="form-control">
           <select
             value={category}
@@ -144,7 +144,7 @@ const Home = () => {
             placeholder="Search by Name"
             value={searchQuery}
             onChange={handleSearchChange}
-            className="input input-bordered w-24 md:w-auto"
+            className="input input-bordered md:w-auto"
           />
         </div>
       </div>

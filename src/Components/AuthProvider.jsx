@@ -15,6 +15,7 @@ import {
 export const AuthContext = createContext();
 
 import app from "./Firebase.config.js";
+import axios from "axios";
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
@@ -61,22 +62,22 @@ const AuthProvider = ({ children }) => {
   };
 
   // Get token from server
-  //   const getToken = async (email) => {
-  //     const { data } = await axiosPublic.post(
-  //       `/jwt`,
-  //       { email },
-  //       { withCredentials: true }
-  //     );
-  //     return data;
-  //   };
+  const getToken = async (email) => {
+    const { data } = await axios.post(
+      `http://localhost:3000/jwt`,
+      { email },
+      { withCredentials: true }
+    );
+    return data;
+  };
 
   //   onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      //   if (currentUser) {
-      //     getToken(currentUser?.email);
-      //   }
+      if (currentUser) {
+        getToken(currentUser?.email);
+      }
       setLoading(false);
     });
     return () => {
