@@ -16,13 +16,14 @@ export const AuthContext = createContext();
 
 import app from "./Firebase.config.js";
 import axios from "axios";
+import useAxiosSecure from "./useAxiosSecure.jsx";
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState();
   const [loading, setLoading] = useState(true);
+  const axioxSecure = useAxiosSecure();
 
   // create user
   const createUser = (email, password) => {
@@ -56,10 +57,18 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  //   logout
+  // Logout
   const logOut = async () => {
-    setLoading(true);
-    return signOut(auth);
+    try {
+      setLoading(true);
+      await axioxSecure.post(`/logout`, {}, { withCredentials: true });
+      await signOut(auth);
+      setUser(null);
+    } catch (error) {
+      console.error("Logout failed:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Get token from server
@@ -69,11 +78,9 @@ const AuthProvider = ({ children }) => {
       { email },
       { withCredentials: true }
     );
-    console.log(data);
-    setToken(data.token);
+
     return data;
   };
-  console.log(token);
 
   //   onAuthStateChange
   useEffect(() => {
@@ -98,7 +105,6 @@ const AuthProvider = ({ children }) => {
     resetPassword,
     updateUserProfile,
     logOut,
-    token,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

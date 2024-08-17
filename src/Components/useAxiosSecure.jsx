@@ -1,9 +1,6 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Adjust this import based on your routing library
 
-const useAxiosWithAuth = () => {
-  const navigate = useNavigate();
-
+const useAxiosSecure = () => {
   const instance = axios.create({
     baseURL: "http://localhost:3000",
     withCredentials: true,
@@ -15,7 +12,7 @@ const useAxiosWithAuth = () => {
     (error) => {
       if (error.response && error.response.status === 401) {
         // Redirect to login page
-        navigate("/login");
+        window.location.href = "/login";
       }
       return Promise.reject(error);
     }
@@ -24,4 +21,4 @@ const useAxiosWithAuth = () => {
   return instance;
 };
 
-export default useAxiosWithAuth;
+export default useAxiosSecure;

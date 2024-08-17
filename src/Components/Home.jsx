@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleData from "./SingleData";
-import useAxiosWithAuth from "./useAxiosSecure";
+import useAxiosSecure from "./useAxiosSecure";
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
@@ -11,7 +11,7 @@ const Home = () => {
   const [brand, setBrand] = useState("");
   const [priceRange, setPriceRange] = useState("");
   const [sortOption, setSortOption] = useState("");
-  const axioxSecure = useAxiosWithAuth();
+  const axioxSecure = useAxiosSecure();
   const limit = 9;
 
   useEffect(() => {
