@@ -21,6 +21,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState();
   const [loading, setLoading] = useState(true);
 
   // create user
@@ -68,8 +69,11 @@ const AuthProvider = ({ children }) => {
       { email },
       { withCredentials: true }
     );
+    console.log(data);
+    setToken(data.token);
     return data;
   };
+  console.log(token);
 
   //   onAuthStateChange
   useEffect(() => {
@@ -94,6 +98,7 @@ const AuthProvider = ({ children }) => {
     resetPassword,
     updateUserProfile,
     logOut,
+    token,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

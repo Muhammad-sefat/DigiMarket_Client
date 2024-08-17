@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleData from "./SingleData";
-import axios from "axios";
+import useAxiosWithAuth from "./useAxiosSecure";
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
@@ -11,12 +11,16 @@ const Home = () => {
   const [brand, setBrand] = useState("");
   const [priceRange, setPriceRange] = useState("");
   const [sortOption, setSortOption] = useState("");
+  const axioxSecure = useAxiosWithAuth();
   const limit = 9;
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get(
-        `http://localhost:3000/product?search=${searchQuery}&page=${currentPage}&limit=${limit}&category=${category}&brand=${brand}&priceRange=${priceRange}&sort=${sortOption}`
+      const { data } = await axioxSecure.get(
+        `http://localhost:3000/product?search=${searchQuery}&page=${currentPage}&limit=${limit}&category=${category}&brand=${brand}&priceRange=${priceRange}&sort=${sortOption}`,
+        {
+          withCredentials: true,
+        }
       );
       setDatas(data.data);
       setTotalPages(data.totalPages);
